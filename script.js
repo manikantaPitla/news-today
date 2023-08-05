@@ -1,6 +1,6 @@
-// const API_KEY = "a0d825f8e1ce4741b03067a47838cfa8";
+const API_KEY = "a0d825f8e1ce4741b03067a47838cfa8";
 // const API_KEY = "1a83dd93a2024e5dafc4096878f9aa83";
-const API_KEY = "3d585ef3352247d783f9add830b0014c";
+// const API_KEY = "3d585ef3352247d783f9add830b0014c";
 
 let countrySelect = document.getElementById("countrySelect");
 let country = countrySelect.value;
@@ -56,9 +56,9 @@ async function fetchNews(apiUrl){
         let response = await fetch(apiUrl);
         let jsonData = await response.json();
         let articles = jsonData.articles;
-        console.log(jsonData.status);
-        console.log(articles);
-        console.log(apiUrl);
+        // console.log(jsonData.status);
+        // console.log(articles);
+        // console.log(apiUrl);
 
         for(let eachArticle of articles){
             articleCard(eachArticle);
