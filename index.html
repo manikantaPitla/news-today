@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/43314e4458.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Playfair+Display|Lora|Merriweather|Crimson+Text&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container d-flex flex-column">
+        <nav class="navigation p-3 d-flex align-items-center justify-content-between">
+            <div class="nav-left">
+                <h1 class="page-title m-0">NEWS TODAY</h1>
+            </div>
+            <div class="search-bar-section search-input-container py-0">
+                <div class="form-control d-flex align-items-center">
+                    <input type="search" class=" search-input" placeholder="Search" id="inputText">
+                    <i class="fa-solid fa-search search-icon" id="searchIcon"></i>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="d-flex flex-row align-items-center">
+                    <p class="country-title m-0 mr-2">Country:</p>
+                    <div>
+                        <select class="country-select" id="countrySelect">
+                            <option value="in" selected>India</option>
+                            <option value="us">America</option>
+                            <option value="ae">United Arab Emirates</option>
+                            <option value="ar">Argentina</option>
+                            <option value="at">Austria</option>
+                            <option value="au">Australia</option>
+                            <option value="be">Belgium</option>
+                            <option value="bg">Bulgaria</option>
+                            <option value="br">Brazil</option>
+                            <option value="ca">Canada</option>
+                            <option value="ch">Switzerland</option>
+                            <option value="cn">China</option>
+                            <option value="co">Colombia</option>
+                            <option value="cz">Czech Republic</option>
+                            <option value="de">Germany</option>
+                            <option value="eg">Egypt</option>
+                            <option value="fr">France</option>
+                            <option value="gb">United Kingdom</option>
+                            <option value="gr">Greece</option>
+                            <option value="hk">Hong Kong</option>
+                            <option value="hu">Hungary</option>
+                            <option value="id">Indonesia</option>
+                            <option value="ie">Ireland</option>
+                            <option value="il">Israel</option>
+                            <option value="it">Italy</option>
+                            <option value="jp">Japan</option>
+                            <option value="kr">South Korea</option>
+                            <option value="lt">Lithuania</option>
+                            <option value="lv">Latvia</option>
+                            <option value="ma">Morocco</option>
+                            <option value="mx">Mexico</option>
+                            <option value="my">Malaysia</option>
+                            <option value="ng">Nigeria</option>
+                            <option value="nl">Netherlands</option>
+                            <option value="no">Norway</option>
+                            <option value="nz">New Zealand</option>
+                            <option value="ph">Philippines</option>
+                            <option value="pl">Poland</option>
+                            <option value="pt">Portugal</option>
+                            <option value="ro">Romania</option>
+                            <option value="rs">Serbia</option>
+                            <option value="ru">Russia</option>
+                            <option value="sa">Saudi Arabia</option>
+                            <option value="se">Sweden</option>
+                            <option value="sg">Singapore</option>
+                            <option value="si">Slovenia</option>
+                            <option value="sk">Slovakia</option>
+                            <option value="th">Thailand</option>
+                            <option value="tr">Turkey</option>
+                            <option value="tw">Taiwan</option>
+                            <option value="ua">Ukraine</option>
+                            <option value="ve">Venezuela</option>
+                            <option value="za">South Africa</option>
+                        </select>
+                        
+                    </div> 
+                </div>
+            </div>
+        </nav>
+        <div class="news-types">
+            <ul class="m-0 p-2 d-flex justify-content-center align-items-center">
+                <li class="news-type-item active" id="countryName">India</li>
+                <hr class="hr">
+                <li class="news-type-item">General</li>
+                <hr class="hr"> 
+                <li class="news-type-item">Business</li>
+                <hr class="hr"> 
+                <li class="news-type-item">Technology</li>
+                <hr class="hr">
+                <li class="news-type-item">Entertainment</li>
+                <hr class="hr">
+                <li class="news-type-item">Sports</li>
+                <hr class="hr">
+                <li class="news-type-item">Science</li>
+                <hr class="hr">
+                <li class="news-type-item">Health</li>
+                <hr class="hr">
+            </ul>
+        </div>
+        <div class="news-container">
+            <div class="d-none" id="loadingContainer">
+                <div class="spinner-border text-dark" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div class="container" id="newsContainer"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
