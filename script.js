@@ -151,7 +151,7 @@ newsTypeItems.forEach(item => {
 
 
 // default on window load //
-window.onload = () =>{
-    apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`;
-    fetchNews(apiUrl);
-}
+// window.onload = () =>{
+apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`;
+fetchNews(apiUrl);
+// }
