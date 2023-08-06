@@ -48,7 +48,7 @@ function articleCard(articles){
 }
 
 
-async function fetchNews(apiUrl){
+let  fetchNews = async (apiUrl) =>{
     document.getElementById("newsContainer").innerHTML = "";
     document.getElementById('loadingContainer').classList.remove('d-none');
 
@@ -147,8 +147,5 @@ newsTypeItems.forEach(item => {
 
 
 
-// default on window load //
-// window.onload = () =>{
 apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`;
 fetchNews(apiUrl);
-// }
