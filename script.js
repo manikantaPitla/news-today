@@ -52,22 +52,22 @@ async function fetchNews(apiUrl){
     document.getElementById("newsContainer").innerHTML = "";
     document.getElementById('loadingContainer').classList.remove('d-none');
 
-    try{
-        let response = await fetch(apiUrl);
+    try {
+        var req = new Request(apiUrl);
+        let response = await fetch(req);
+        if (!response.ok) {
+        throw new Error("Network response was not ok");
+        }
         let jsonData = await response.json();
         let articles = jsonData.articles;
-        // console.log(jsonData.status);
-        // console.log(articles);
-        // console.log(apiUrl);
-
-        for(let eachArticle of articles){
-            articleCard(eachArticle);
+        for (let eachArticle of articles) {
+        articleCard(eachArticle);
         }
-
         document.getElementById('loadingContainer').classList.add('d-none');
-    }catch(e){
-        console.log(e.message)
+    } catch (e) {
+        console.log('Error:', e);
     }
+  
 }
 
 
@@ -124,8 +124,6 @@ function countryChange(){
         selectedOptionText = countrySelect.options[countrySelect.selectedIndex].textContent;
         query = selectedOptionText.replace(/\s/g, "");
 
-        console.log(query);
-
         document.getElementById("countryName").textContent = selectedOptionText;
         apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`;
         fetchNews(apiUrl);
@@ -143,8 +141,7 @@ newsTypeItems.forEach(item => {
     if (activeIndex !== -1 && activeIndex !== clickedIndex) {
       newsTypeItems[activeIndex].classList.remove("active");
     }
-    item.classList.add("active");
-    console.log("Selected News Type:", newsTypeItems[clickedIndex].textContent);
+    item.classList.add("active");;
   });
 });
 
