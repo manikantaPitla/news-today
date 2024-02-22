@@ -2,6 +2,7 @@
 
 The "News Today" web application allows users to browse and read news articles from various categories and countries. Here's an overview of its features, design, and implementation:
 
+Teachnologies used: HTML, CSS, Javascript
 ## Features
 
 1. **Search**: Users can search for specific news articles using the search bar.
