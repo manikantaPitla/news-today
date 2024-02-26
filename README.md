@@ -19,14 +19,14 @@ Teachnologies used: HTML, CSS, Javascript
 ## Responsive Design
 
 <details>
-  <summary>Mobile Device</summary>
+  <summary>Desktop Device</summary>
 
 ![Mobile Screenshot](./images/home-sm.png)
 
 </details>
 
 <details>
-  <summary>Desktop Device</summary>
+  <summary>Mobile Device</summary>
   
 ![Desktop Screenshot](./images/home-lg.png)
 </details>
